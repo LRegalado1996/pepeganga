@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { inter } from "@/config/fonts";
 
 import "./globals.css";
-import { TopMenu } from "@/components";
+import { Sidebar, TopMenu } from "@/components";
 
 export const metadata: Metadata = {
   title: {
@@ -23,6 +23,7 @@ export default function RootLayout({
     <html lang="es_UY">
       <body className={`${inter.className} antialiased`}>
         <TopMenu />
+        <Sidebar />
         {children}
       </body>
     </html>
