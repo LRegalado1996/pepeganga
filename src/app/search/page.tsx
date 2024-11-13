@@ -1,3 +1,3 @@
-export default function Search() {
+export default function SearchPage() {
   return <p>Search</p>;
 }

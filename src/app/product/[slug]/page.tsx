@@ -1,3 +1,3 @@
-export default function ProductSlug() {
+export default function ProductSlugPage() {
   return <p>ProductSlug</p>;
 }
