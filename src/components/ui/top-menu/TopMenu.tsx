@@ -18,7 +18,9 @@ export const TopMenu = () => {
       </Link>
 
       {/* Main categories */}
-      <div className="hidden sm:block">Categories</div>
+      <Link href="/category" className="hidden sm:block">
+        Categorías
+      </Link>
 
       {/* Search, cart, menu */}
       <div className="flex items-center">
