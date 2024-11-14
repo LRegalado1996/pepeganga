@@ -41,6 +41,8 @@ model Product {
   category   Category @relation(fields: [categoryId], references: [id])
   categoryId String
 
+  productLists ProductList[] @relation("ProductInLists")
+
   ProductImage ProductImage[]
 
   @@index([title, tags])
@@ -53,6 +55,17 @@ model ProductImage {
 
   product   Product @relation(fields: [productId], references: [id])
   productId String
+}
+
+model ProductList {
+  id          String  @id @default(uuid())
+  title       String  @unique
+  description String?
+
+  products Product[] @relation("ProductInLists")
+  roles    Role[]    @default([admin, user])
+
+  @@index([title])
 }
 
 model User {

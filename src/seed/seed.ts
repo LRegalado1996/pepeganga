@@ -5,7 +5,7 @@ export interface CategoryInterface {
   childrens?: CategoryInterface[];
 }
 
-interface Product {
+export interface Product {
   internalId: number;
   title: string;
   description: string;
@@ -17,17 +17,23 @@ interface Product {
   images: string[];
 }
 
-interface user {
+interface User {
   email: string;
   password: string;
   name: string;
   role: "admin" | "user";
 }
 
+export interface ProductList {
+  title: string;
+  products: number[];
+}
+
 interface InitialData {
   categories: CategoryInterface[];
   products: Product[];
-  users: user[];
+  users: User[];
+  productList: ProductList[];
 }
 export const initialData: InitialData = {
   categories: [
@@ -92,6 +98,17 @@ export const initialData: InitialData = {
       password: bcryptjs.hashSync("123456", 10),
       name: "User",
       role: "user",
+    },
+  ],
+
+  productList: [
+    {
+      title: "HOME",
+      products: [2, 3],
+    },
+    {
+      title: "Oferta de la semana",
+      products: [3],
     },
   ],
 };
