@@ -1,3 +1,5 @@
+import bcryptjs from "bcryptjs";
+
 export interface CategoryInterface {
   name: string;
   childrens?: CategoryInterface[];
@@ -15,9 +17,17 @@ interface Product {
   images: string[];
 }
 
+interface user {
+  email: string;
+  password: string;
+  name: string;
+  role: "admin" | "user";
+}
+
 interface InitialData {
   categories: CategoryInterface[];
   products: Product[];
+  users: user[];
 }
 export const initialData: InitialData = {
   categories: [
@@ -68,6 +78,20 @@ export const initialData: InitialData = {
         "/imgs/3/IMG_9128.HEIC",
         "/imgs/3/IMG_9129.HEIC",
       ],
+    },
+  ],
+  users: [
+    {
+      email: "admin@email.com",
+      password: bcryptjs.hashSync("123456", 10),
+      name: "Admin",
+      role: "admin",
+    },
+    {
+      email: "user@email.com",
+      password: bcryptjs.hashSync("123456", 10),
+      name: "User",
+      role: "user",
     },
   ],
 };
