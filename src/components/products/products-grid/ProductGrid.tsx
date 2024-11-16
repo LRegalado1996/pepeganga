@@ -7,7 +7,7 @@ interface Props {
 
 export const ProductGrid = ({ products }: Props) => {
   return (
-    <ul className="grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-10 mt-5">
+    <ul className="grid grid-cols-2 sm:grid-cols-3 gap-5 sm:gap-10">
       {products.map((product) => (
         <ProductGridItem product={product} key={product.id} />
       ))}

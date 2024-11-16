@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 
-import { mainFont } from "@/config/fonts";
+import { logoFont } from "@/config/fonts";
 import { useUIStore } from "@/store";
 
 export const TopMenu = () => {
@@ -14,7 +14,7 @@ export const TopMenu = () => {
       {/* Logo */}
       <Link className="flex items-center" href="/">
         <h1>
-          <span className={`${mainFont.className} antialiased text-xl pr-1`}>Pepe</span>
+          <span className={`${logoFont.className} antialiased text-xl pr-1`}>Pepe</span>
           <span>| shop</span>
         </h1>
       </Link>
