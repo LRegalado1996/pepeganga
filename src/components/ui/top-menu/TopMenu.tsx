@@ -10,7 +10,7 @@ export const TopMenu = () => {
   const openSideMenu = useUIStore((state) => state.openSideMenu);
 
   return (
-    <nav className="flex px-2 sm:px-5  py-3 justify-between items-center w-full bg-olive text-charcoal">
+    <nav className="flex px-5 lg:px-10  py-3 justify-between items-center w-full bg-olive text-charcoal">
       {/* Logo */}
       <Link className="flex items-center" href="/">
         <span className={`${mainFont.className} antialiased text-xl pr-1`}>Pepe</span>

@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased`}>
         <TopMenu />
         <Sidebar />
-        {children}
+        <main className="px-5 lg:px-10">{children}</main>
       </body>
     </html>
   );
