@@ -20,12 +20,16 @@ enum Role {
 
 model Category {
   id      String    @id @default(uuid())
-  name    String    @unique
+  name    String
+  image   String
+  slug    String    @unique
   Product Product[]
 
   parentId String?
   parent   Category?  @relation("CategoryToParent", fields: [parentId], references: [id])
   children Category[] @relation("CategoryToParent")
+
+  @@index([name])
 }
 
 model Product {

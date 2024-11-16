@@ -33,7 +33,9 @@ async function insertCategories(categories: CategoryInterface[], categoryid: str
     const dbCategory = await prisma.category.create({
       data: {
         name: category.name,
+        slug: category.slug,
         parentId: categoryid,
+        image: category.image,
       },
     });
 

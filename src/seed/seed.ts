@@ -3,6 +3,8 @@ import bcryptjs from "bcryptjs";
 export interface CategoryInterface {
   name: string;
   childrens?: CategoryInterface[];
+  slug: string;
+  image: string;
 }
 
 export interface Product {
@@ -39,12 +41,45 @@ export const initialData: InitialData = {
   categories: [
     {
       name: "Bijouterie",
+      slug: "/bijouterie",
+      image: "/imgs/categories/bijouterie.png",
       childrens: [
-        { name: "Anillos" },
-        { name: "Pulseras" },
+        {
+          name: "Anillos",
+          slug: "/bijouterie/anillos",
+          image: "/imgs/categories/bijouterie.png",
+        },
+        {
+          name: "Pulseras",
+          slug: "/bijouterie/pulseras",
+          image: "/imgs/categories/bijouterie.png",
+        },
         {
           name: "Collares",
-          childrens: [{ name: "Piedra" }, { name: "Letra" }, { name: "Signos" }, { name: "Otros" }],
+          slug: "/bijouterie/collares",
+          image: "/imgs/categories/bijouterie.png",
+          childrens: [
+            {
+              name: "Piedra",
+              slug: "/bijouterie/collares/piedra",
+              image: "/imgs/categories/bijouterie.png",
+            },
+            {
+              name: "Letra",
+              slug: "/bijouterie/collares/letra",
+              image: "/imgs/categories/bijouterie.png",
+            },
+            {
+              name: "Signos",
+              slug: "/bijouterie/collares/signos",
+              image: "/imgs/categories/bijouterie.png",
+            },
+            {
+              name: "Otros",
+              slug: "/bijouterie/collares/otros",
+              image: "/imgs/categories/bijouterie.png",
+            },
+          ],
         },
       ],
     },
