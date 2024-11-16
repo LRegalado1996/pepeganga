@@ -30,6 +30,10 @@
   animation-name: fadeIn;
 }
 
+.btn-primary {
+  @apply bg-forestGreen hover:bg-white text-white hover:text-forestGreen p-2 text-xs border border-forestGreen rounded;
+}
+
 body {
   @apply bg-ivory text-charcoal;
   font-family: Arial, Helvetica, sans-serif;

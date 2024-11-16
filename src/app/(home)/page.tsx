@@ -1,3 +1,8 @@
-export default function Home() {
-  return <p>Esto recien empieza</p>;
+import { getProductsForHome } from "@/actions";
+import { ProductGrid } from "@/components";
+
+export default async function Home() {
+  const { products } = await getProductsForHome();
+
+  return <ProductGrid products={products} />;
 }

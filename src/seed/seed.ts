@@ -52,11 +52,11 @@ export const initialData: InitialData = {
   products: [
     {
       internalId: 2,
-      title: "Piedra blanca",
+      title: "Collar con piedra de Ágata Blanca (blanco)",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, possimus nam ut repellat porro aperiam nesciunt ratione commodi dolorem aut earum recusandae fugiat nisi, eius, quia necessitatibus excepturi illum qui!",
       price: 300,
-      tags: ["blanco"],
+      tags: ["blanco", "acero quirúrgico"],
       stock: 4,
       slug: "collar_piedra_blanca",
       category: "Piedra",
@@ -64,11 +64,11 @@ export const initialData: InitialData = {
     },
     {
       internalId: 3,
-      title: "Piedra marron",
+      title: "Collar con piedra de Cuarzo Ahumado (marron)",
       description:
         "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, possimus nam ut repellat porro aperiam nesciunt ratione commodi dolorem aut earum recusandae fugiat nisi, eius, quia necessitatibus excepturi illum qui!",
       price: 300,
-      tags: ["marron", "amarrillo"],
+      tags: ["marron", "amarrillo", "acero quirúrgico"],
       stock: 4,
       slug: "collar_piedra_marron",
       category: "Piedra",
