@@ -1,13 +1,12 @@
-"use client";
-
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 
+import { getCategoryHeader } from "@/actions";
 import { logoFont } from "@/config/fonts";
-import { useUIStore } from "@/store";
+import { MenuButton } from "./MenuButton";
 
-export const TopMenu = () => {
-  const openSideMenu = useUIStore((state) => state.openSideMenu);
+export const TopMenu = async () => {
+  const categories = await getCategoryHeader();
 
   return (
     <nav className="flex px-5 lg:px-10  py-3 justify-between items-center w-full bg-olive text-charcoal">
@@ -20,9 +19,13 @@ export const TopMenu = () => {
       </Link>
 
       {/* Main categories */}
-      <Link href="/category" className="hidden sm:block">
-        Categorías
-      </Link>
+      <ul className="hidden sm:flex gap-4">
+        {categories.map((category) => (
+          <Link key={category.id} href={category.slug} className="hover:text-white">
+            {category.name}
+          </Link>
+        ))}
+      </ul>
 
       {/* Search, cart, menu */}
       <div className="flex items-center">
@@ -36,9 +39,7 @@ export const TopMenu = () => {
           </div>
         </Link>
 
-        <button className="transition-all hover:underline" onClick={() => openSideMenu()}>
-          Menu
-        </button>
+        <MenuButton />
       </div>
     </nav>
   );
