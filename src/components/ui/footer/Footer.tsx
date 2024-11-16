@@ -4,7 +4,7 @@ import { IoInformationCircle, IoLogoWhatsapp } from "react-icons/io5";
 
 export const Footer = () => {
   return (
-    <footer className="bg-white p-3 mt-6">
+    <footer className="bg-ivory p-3 mt-6">
       <ul className="flex gap-5 justify-center items-center w-full text-xs">
         <li>
           <a

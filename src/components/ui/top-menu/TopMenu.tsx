@@ -13,8 +13,10 @@ export const TopMenu = () => {
     <nav className="flex px-5 lg:px-10  py-3 justify-between items-center w-full bg-olive text-charcoal">
       {/* Logo */}
       <Link className="flex items-center" href="/">
-        <span className={`${mainFont.className} antialiased text-xl pr-1`}>Pepe</span>
-        <span>| shop</span>
+        <h1>
+          <span className={`${mainFont.className} antialiased text-xl pr-1`}>Pepe</span>
+          <span>| shop</span>
+        </h1>
       </Link>
 
       {/* Main categories */}

@@ -1,5 +1,7 @@
+import { AddToCart } from "@/components/product/add-to-cart/AddToCart";
 import type { ProductInterface } from "@/interfaces";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Props {
   product: ProductInterface;
@@ -8,13 +10,23 @@ interface Props {
 export const ProductGridItem = ({ product }: Props) => {
   const image = product.ProductImage[0];
   return (
-    <li className="flex flex-col bg-white shadow rounded overflow-hidden">
-      <Image className="w-full h-auto" src={image.url} alt={image.alt} width={500} height={500} />
+    <li className="flex flex-col">
+      <Link href={`/product/${product.slug}`}>
+        <Image
+          className="w-full h-auto mb-1"
+          src={image.url}
+          alt={image.alt}
+          width={500}
+          height={500}
+        />
+      </Link>
+      <Link href={`/product/${product.slug}`}>
+        <h3 className="text-xs mb-1 flex-1">{product.title}</h3>
+      </Link>
 
-      <div className="p-4 w-full flex flex-col items-center flex-1">
-        <h2 className="text-center text-xs mb-2">{product.title}</h2>
-        <span className="text-2xl mb-2 font-bold flex-1 flex items-center">{`$ ${product.price}`}</span>
-        <button className="btn-primary w-full">COMPRAR</button>
+      <div className="flex justify-between items-center">
+        <Link href={`/product/${product.slug}`}>{`$ ${product.price}`}</Link>
+        <AddToCart productId={product.id} />
       </div>
     </li>
   );

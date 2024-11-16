@@ -35,6 +35,6 @@
 }
 
 body {
-  @apply bg-ivory text-charcoal;
+  @apply bg-white text-charcoal;
   font-family: Arial, Helvetica, sans-serif;
 }
