@@ -6,9 +6,9 @@ async function main() {
 
   await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
+  await prisma.productList.deleteMany();
   await prisma.category.deleteMany();
   await prisma.user.deleteMany();
-  await prisma.productList.deleteMany();
 
   await prisma.user.createMany({ data: users });
 
