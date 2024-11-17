@@ -24,7 +24,7 @@ export default function RootLayout({
       <body className={`${inter.className} antialiased flex flex-col min-h-screen`}>
         <TopMenu />
         <Sidebar />
-        <main className="px-5 lg:px-10 flex-1">{children}</main>
+        <main className="px-5 lg:px-10 flex-1 max-w-[1600px] w-full m-auto">{children}</main>
         <Footer />
       </body>
     </html>

@@ -5,5 +5,5 @@ interface Props {
 }
 
 export const Title = ({ name }: Props) => {
-  return <h2 className={`${mainFont.className} antialiased text-xl font-bold my-2`}>{name}</h2>;
+  return <h2 className={`${mainFont.className} antialiased text-xl font-bold mb-5`}>{name}</h2>;
 };
