@@ -47,32 +47,32 @@ export const initialData: InitialData = {
         {
           name: "Anillos",
           slug: "/bijouterie/anillos",
-          image: "/imgs/categories/bijouterie.png",
+          image: "/imgs/categories/anillos.png",
         },
         {
           name: "Pulseras",
           slug: "/bijouterie/pulseras",
-          image: "/imgs/categories/bijouterie.png",
+          image: "/imgs/categories/pulseras.png",
         },
         {
           name: "Collares",
           slug: "/bijouterie/collares",
-          image: "/imgs/categories/bijouterie.png",
+          image: "/imgs/categories/collar.png",
           childrens: [
             {
               name: "Piedra",
               slug: "/bijouterie/collares/piedra",
-              image: "/imgs/categories/bijouterie.png",
+              image: "/imgs/categories/collar-piedra.png",
             },
             {
               name: "Letra",
               slug: "/bijouterie/collares/letra",
-              image: "/imgs/categories/bijouterie.png",
+              image: "/imgs/categories/collar-letras.png",
             },
             {
               name: "Signos",
               slug: "/bijouterie/collares/signos",
-              image: "/imgs/categories/bijouterie.png",
+              image: "/imgs/categories/collar-signo.png",
             },
             {
               name: "Otros",

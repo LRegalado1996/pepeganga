@@ -7,8 +7,8 @@ async function main() {
   await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
   await prisma.productList.deleteMany();
-  await prisma.category.deleteMany();
   await prisma.user.deleteMany();
+  await prisma.category.deleteMany();
 
   await prisma.user.createMany({ data: users });
 
@@ -16,13 +16,6 @@ async function main() {
   await insertProducts(products);
   await insertProductList(productList);
 
-  const test = await prisma.productList.findMany({
-    include: {
-      products: true,
-    },
-  });
-
-  console.log(test);
   console.log("Seed completed");
 }
 
