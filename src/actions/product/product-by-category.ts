@@ -1,12 +1,16 @@
 import prisma from "@/lib/prisma";
 
-interface Props {
-  ids: string[];
-}
-
-export const getProductByCategories = async ({ ids }: Props) => {
+export const getProductByCategories = async (ids: string[]) => {
   try {
-    const allCategories = await prisma.product.findMany({ where: { categoryId: { in: ids } } });
+    const allCategories = await prisma.product.findMany({
+      where: { categoryId: { in: ids } },
+
+      include: {
+        ProductImage: {
+          take: 1,
+        },
+      },
+    });
 
     if (allCategories) {
       return allCategories;

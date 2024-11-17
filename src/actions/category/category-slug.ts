@@ -1,4 +1,4 @@
-import { CategoryInterface, ChildrenCategoryInterface } from "@/interfaces";
+import { CategoryInterface } from "@/interfaces";
 import prisma from "@/lib/prisma";
 
 export const getCategoriesSlug = async (slug: string): Promise<CategoryInterface | null> => {
@@ -17,7 +17,10 @@ export const getCategoriesSlug = async (slug: string): Promise<CategoryInterface
     });
 
     if (allCategories) {
-      return allCategories;
+      return {
+        ...allCategories,
+        productCount: allCategories._count.Product,
+      };
     }
 
     return null;
@@ -40,7 +43,7 @@ export const getChildrenCategories = async (parentId: string | null) => {
   }
 };
 
-const getCategories = async (parentId: string | null): Promise<ChildrenCategoryInterface[]> => {
+const getCategories = async (parentId: string | null): Promise<CategoryInterface[]> => {
   if (!parentId) return [];
   const allCategories = await prisma.category.findMany({
     where: { parentId },

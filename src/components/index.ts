@@ -1,4 +1,6 @@
 export * from "./product/add-to-cart/AddToCart";
+export * from "./products/categories-list/CategoriesList";
+export * from "./products/categories-products-list/CategoriesProductsList";
 export * from "./products/categories-view/CategoriesView";
 export * from "./products/products-grid/ProductGrid";
 export * from "./ui/footer/Footer";
