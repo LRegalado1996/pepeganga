@@ -1,12 +1,12 @@
 import Link from "next/link";
 import { IoCartOutline } from "react-icons/io5";
 
-import { getCategoryHeader } from "@/actions";
+import { getCategoriesHeader } from "@/actions";
 import { logoFont } from "@/config/fonts";
 import { MenuButton } from "./MenuButton";
 
 export const TopMenu = async () => {
-  const categories = await getCategoryHeader();
+  const categories = await getCategoriesHeader();
 
   return (
     <header className="flex justify-center bg-olive">

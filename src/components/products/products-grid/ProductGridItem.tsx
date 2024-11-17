@@ -20,8 +20,8 @@ export const ProductGridItem = ({ product }: Props) => {
           height={500}
         />
       </Link>
-      <Link href={`/product/${product.slug}`}>
-        <h3 className="text-xs mb-1 flex-1">{product.title}</h3>
+      <Link className="text-xs mb-1 flex-1 flex items-center" href={`/product/${product.slug}`}>
+        <h3>{product.title}</h3>
       </Link>
 
       <div className="flex justify-between items-center">
