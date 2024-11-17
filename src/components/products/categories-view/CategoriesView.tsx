@@ -14,6 +14,8 @@ export const CategoriesView = async ({ pathname }: Props) => {
 
   const childrenCategories = await getChildrenCategories(category.id);
 
+  if (childrenCategories.length === 0 && category.productCount === 0) notFound();
+
   return (
     <div className="mt-3">
       <CategoriesProductsList category={category} />
