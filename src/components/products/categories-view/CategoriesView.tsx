@@ -17,7 +17,7 @@ export const CategoriesView = async ({ pathname }: Props) => {
   if (childrenCategories.length === 0 && category.productCount === 0) notFound();
 
   return (
-    <div className="mt-3">
+    <div className="mt-5">
       <CategoriesProductsList category={category} />
 
       {childrenCategories.length > 0 && (
