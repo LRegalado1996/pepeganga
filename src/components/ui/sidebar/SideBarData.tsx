@@ -65,7 +65,7 @@ export const SideBarData = ({ categories }: Props) => {
           />
 
           {/* Category */}
-          <ul className="flex flex-col gap-1 border-b border-forestGreen my-10">
+          <ul className="flex flex-col gap-1 border-b border-forestGreen my-10 pb-5">
             {categories.map((category) => (
               <li key={category.id}>
                 <Link
