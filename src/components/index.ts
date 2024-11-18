@@ -1,4 +1,5 @@
 export * from "./product/add-to-cart/AddToCart";
+export * from "./product/images-slider/ImageSlider";
 export * from "./products/categories-list/CategoriesList";
 export * from "./products/categories-products-list/CategoriesProductsList";
 export * from "./products/categories-view/CategoriesView";

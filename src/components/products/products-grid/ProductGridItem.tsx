@@ -29,7 +29,7 @@ export const ProductGridItem = ({ product }: Props) => {
 
       <div className="flex justify-between items-center hover:text-forestGreen">
         <Link href={`/product/${product.slug}`}>{`$ ${product.price}`}</Link>
-        <AddToCart productId={product.id} />
+        <AddToCart product={product} />
       </div>
     </li>
   );
