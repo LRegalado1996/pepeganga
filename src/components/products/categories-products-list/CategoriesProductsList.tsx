@@ -12,7 +12,7 @@ export const CategoriesProductsList = async ({ category }: Props) => {
   return (
     allProducts?.length > 0 && (
       <>
-        <Link href={category.slug} className="block pt-5">
+        <Link href={category.slug} className="block mt-5">
           <Title name={category.name} />
         </Link>
 

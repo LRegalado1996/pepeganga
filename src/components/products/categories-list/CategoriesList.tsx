@@ -15,13 +15,13 @@ export const CategoriesList = ({ categories }: Props) => {
         <li className="flex-1" key={category.id}>
           <Link className="flex flex-col items-center" href={category.slug}>
             <Image
-              className="bg-ivory rounded-full mb-1 w-full max-w-[150px]"
+              className="bg-ivory rounded-full mb-1 w-full max-w-[150px] transition-transform duration-300 ease-in-out transform hover:scale-110"
               src={category.image}
               width={150}
               height={150}
               alt={category.name}
             />
-            <h2 className="text-forestGreen">{category.name}</h2>
+            <h2 className="hover:text-forestGreen">{category.name}</h2>
           </Link>
         </li>
       ))}
