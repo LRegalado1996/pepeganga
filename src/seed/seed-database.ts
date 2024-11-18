@@ -4,11 +4,11 @@ import prisma from "../lib/prisma";
 async function main() {
   const { categories, products, users, productList } = initialData;
 
+  await prisma.category.deleteMany();
   await prisma.productImage.deleteMany();
   await prisma.product.deleteMany();
   await prisma.productList.deleteMany();
   await prisma.user.deleteMany();
-  await prisma.category.deleteMany();
 
   await prisma.user.createMany({ data: users });
 

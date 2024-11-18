@@ -77,7 +77,7 @@ export const initialData: InitialData = {
             {
               name: "Otros",
               slug: "/bijouterie/collares/otros",
-              image: "/imgs/categories/bijouterie.png",
+              image: "/imgs/categories/collar-otro.png",
             },
           ],
         },
