@@ -24,7 +24,7 @@ export const ProductGridItem = ({ product }: Props) => {
         className="text-xs mb-1 flex-1 flex items-center hover:text-forestGreen"
         href={`/product/${product.slug}`}
       >
-        <h3>{product.title}</h3>
+        <h3 className="truncate">{product.title}</h3>
       </Link>
 
       <div className="flex justify-between items-center hover:text-forestGreen">
