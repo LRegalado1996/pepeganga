@@ -6,10 +6,10 @@ export default async function NotFoundPage() {
 
   return (
     <div className="text-center mt-5 w-full">
-      <Title name={"Categoria sin articulos"} />
+      <Title name={"Producto no disponible"} />
       {categories && (
         <>
-          <p className="mb-8">Te recomendamos ver alguno de los siguientes categorias</p>
+          <p className="mb-8">Te recomendamos ver los productos dentro de estas categorías</p>
           <CategoriesList categories={categories} />
         </>
       )}
