@@ -78,7 +78,7 @@ export const SideBarData = ({ categories }: Props) => {
                     src={category.image}
                     width={50}
                     height={50}
-                    alt={category.name}
+                    alt={`El nombre de la categoría es ${category.name}`}
                   />
                   <span className="ml-3 text-xl">{category.name}</span>
                 </Link>

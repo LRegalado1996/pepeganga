@@ -19,7 +19,7 @@ export const CategoriesList = ({ categories }: Props) => {
               src={category.image}
               width={150}
               height={150}
-              alt={category.name}
+              alt={`El nombre de la categoría es ${category.name}`}
             />
             <h2 className="hover:text-forestGreen">{category.name}</h2>
           </Link>

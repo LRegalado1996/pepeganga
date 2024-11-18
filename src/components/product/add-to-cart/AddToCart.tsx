@@ -11,7 +11,11 @@ export const AddToCart = ({ productId, type = "default" }: Props) => {
   switch (type) {
     case "default":
       return (
-        <button onClick={() => console.log({ productId, type })} className="btn-primary flex">
+        <button
+          onClick={() => console.log({ productId, type })}
+          className="btn-primary flex"
+          aria-label="Agregar al carrito"
+        >
           <IoAdd />
           <IoCartOutline />
         </button>
