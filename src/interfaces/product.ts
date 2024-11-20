@@ -10,5 +10,5 @@ export interface CartProduct {
   title: string;
   price: number;
   quantity: number;
-  image?: string;
+  image: string;
 }

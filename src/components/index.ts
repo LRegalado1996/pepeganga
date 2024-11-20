@@ -1,3 +1,5 @@
+export * from "./cart/order-summary/OrderSummary";
+export * from "./cart/product-in-cart/ProductInCart";
 export * from "./product/add-to-cart/AddToCart";
 export * from "./product/images-slider/ImageSlider";
 export * from "./products/categories-list/CategoriesList";
