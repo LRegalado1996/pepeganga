@@ -1,15 +1,6 @@
-"use client";
-
-import { OrderSummary, ProductInCart, Title } from "@/components";
-import { redirect } from "next/navigation";
+import { CreateOrderButton, OrderSummary, ProductInCart, Title } from "@/components";
 
 export default function CartPage() {
-  const createOrder = async () => {
-    console.log(createOrder);
-
-    redirect("/orders");
-  };
-
   return (
     <div className="flex flex-col justify-center items-center m-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
@@ -25,12 +16,7 @@ export default function CartPage() {
           <h2 className="text-2xl mb-2">Resumen de orden</h2>
           <OrderSummary />
 
-          <button
-            onClick={() => createOrder()}
-            className="flex btn-primary justify-center mt-5 mb-2 w-full"
-          >
-            COMPRAR
-          </button>
+          <CreateOrderButton />
         </div>
       </div>
     </div>
