@@ -24,11 +24,13 @@ export default async function ProductSlugPage({ params }: Props) {
       </div>
 
       {/* Details */}
-      <div className="mx-5 md:mx-0 col-span-1 flex flex-col gap-5 pt-5">
-        <h2 className={`${mainFont.className} antialiased text-2xl font-bold`}>{product.title}</h2>
-        <span className="text-2xl">$ {product.price}</span>
+      <div className="mx-5 md:mx-0 col-span-1 pt-5">
+        <h2 className={`${mainFont.className} antialiased text-2xl font-bold mb-5`}>
+          {product.title}
+        </h2>
+        <p className="text-2xl mb-5">$ {product.price}</p>
         <AddToCart product={product} />
-        <div>
+        <div className="my-5">
           <h3 className="font-bold mb-1">Descripción</h3>
           <p>{product.description}</p>
         </div>

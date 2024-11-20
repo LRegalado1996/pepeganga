@@ -31,7 +31,7 @@
 }
 
 .btn-primary {
-  @apply bg-forestGreen hover:bg-white text-white hover:text-forestGreen p-2 text-xs border border-forestGreen rounded;
+  @apply bg-forestGreen text-white hover:bg-white  hover:text-forestGreen p-2 text-xs border border-forestGreen rounded disabled:opacity-50 disabled:hover:text-white disabled:hover:bg-forestGreen;
 }
 
 body {
