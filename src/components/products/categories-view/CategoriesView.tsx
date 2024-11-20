@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 
 import { getCategoriesSlug, getChildrenCategories } from "@/actions";
 import { CategoriesList, CategoriesProductsList } from "../..";
+import { Fragment } from "react";
 
 interface Props {
   pathname: string;
@@ -29,8 +30,8 @@ export const CategoriesView = async ({ pathname }: Props) => {
             <ul>
               {childrenCategories
                 .filter((c) => c.productCount > 0 || (c.categories && c.categories.length > 0))
-                .map((childrenCategory) => (
-                  <>
+                .map((childrenCategory, i) => (
+                  <Fragment key={i}>
                     <li key={`children-${childrenCategory.id}`}>
                       <CategoriesProductsList category={childrenCategory} />
                     </li>
@@ -41,7 +42,7 @@ export const CategoriesView = async ({ pathname }: Props) => {
                           <CategoriesProductsList category={childrenChildrenCategory} />
                         </li>
                       ))}
-                  </>
+                  </Fragment>
                 ))}
             </ul>
           )}
