@@ -24,7 +24,6 @@ export const AddToCart = ({ product }: Props) => {
     image: product.ProductImage.length > 0 ? product.ProductImage[0].url : "",
   };
 
-  console.log({ myProductCart: productCart, productFormat });
   return (
     <div className="flex items-center flex-1">
       {productCart && productCart.quantity > 0 ? (

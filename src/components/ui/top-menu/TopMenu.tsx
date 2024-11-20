@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { IoCartOutline } from "react-icons/io5";
 
 import { getCategoriesHeader } from "@/actions";
 import { logoFont } from "@/config/fonts";
 import { MenuButton } from "./MenuButton";
+import { CartButton } from "./CartButton";
 
 export const TopMenu = async () => {
   const categories = await getCategoriesHeader();
@@ -30,15 +30,7 @@ export const TopMenu = async () => {
 
         {/* Search, cart, menu */}
         <div className="flex items-center">
-          <Link href="/cart" className="mx-4">
-            <div className="relative">
-              <span className="fade-in absolute text-xs rounded-full px-1 font-bold -top-2 -right-2 bg-ivory text-forestGreen">
-                2
-              </span>
-
-              <IoCartOutline className="w-5 h-5" />
-            </div>
-          </Link>
+          <CartButton />
 
           <MenuButton />
         </div>
