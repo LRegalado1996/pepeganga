@@ -17,14 +17,14 @@ export default async function ProductSlugPage({ params }: Props) {
   if (!product) notFound();
 
   return (
-    <div className="mt-5 mb-20 grid grid-cols-1 md:grid-cols-3 gap-3">
+    <div className="mx-0 md:mx-5 lg:mx-0 mt-0 md:mt-5 grid grid-cols-1 md:grid-cols-3 gap-5">
       {/* Slider */}
       <div className="col-span-1 md:col-span-2">
         <ImageSlider images={product.ProductImage} />
       </div>
 
       {/* Details */}
-      <div className="col-span-1 flex flex-col gap-5">
+      <div className="mx-5 md:mx-0 col-span-1 flex flex-col gap-5 pt-5">
         <h2 className={`${mainFont.className} antialiased text-2xl font-bold`}>{product.title}</h2>
         <span className="text-2xl">$ {product.price}</span>
         <AddToCart product={product} />
