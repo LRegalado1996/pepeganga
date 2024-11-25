@@ -50,7 +50,7 @@ export const AddToCart = ({ product }: Props) => {
           >
             - <IoCartOutline />
           </button>
-          <span className="text-center flex-1">{productCart.quantity}</span>
+          <span className="text-center flex-1 px-2">{productCart.quantity}</span>
           <button
             onClick={() => onUpdateQuantity(+1)}
             className="btn-primary flex items-center justify-center flex-1"
