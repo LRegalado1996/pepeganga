@@ -43,10 +43,11 @@ export const ProductInCart = () => {
   }
 
   return (
-    <>
-      {loaded &&
-        products.map((product) => (
-          <div key={product.slug} className="flex mb-5">
+    loaded &&
+    products.length > 0 && (
+      <ul>
+        {products.map((product) => (
+          <li key={product.slug} className="flex mb-5 w-full">
             {product.ProductImage.length > 0 && (
               <Image
                 src={product.ProductImage[0].url}
@@ -61,7 +62,7 @@ export const ProductInCart = () => {
               />
             )}
 
-            <div>
+            <div className="flex flex-col flex-1 justify-between">
               <Link className="hover:underline cursor-pointer" href={`/product/${product.slug}`}>
                 {product.title}
               </Link>
@@ -69,12 +70,13 @@ export const ProductInCart = () => {
                 <p className="w-[50%]">${product.price}</p>
                 <AddToCart product={product} />
               </div>
-              <button className="underline mt-3" onClick={() => removeProduct(product)}>
+              <button className="underline text-left" onClick={() => removeProduct(product)}>
                 Remover
               </button>
             </div>
-          </div>
+          </li>
         ))}
-    </>
+      </ul>
+    )
   );
 };
