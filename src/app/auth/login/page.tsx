@@ -8,10 +8,10 @@ export default function loginPage() {
 
       <div className="flex flex-col min-w-80">
         <label htmlFor="email">Correo electrónico</label>
-        <input className="px-5 py-2 border bg-gray-200 rounded mb-5" type="email" />
+        <input className="px-5 py-2 border bg-gray-200 rounded mb-5" type="email" required />
 
         <label htmlFor="email">Contraseña</label>
-        <input className="px-5 py-2 border bg-gray-200 rounded mb-5" type="email" />
+        <input className="px-5 py-2 border bg-gray-200 rounded mb-5" type="password" required />
 
         <button className="btn-primary">Ingresar</button>
 
