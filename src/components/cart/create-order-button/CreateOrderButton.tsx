@@ -4,8 +4,6 @@ import { redirect } from "next/navigation";
 
 export const CreateOrderButton = () => {
   const createOrder = async () => {
-    console.log(createOrder);
-
     redirect("/orders");
   };
 

@@ -17,8 +17,6 @@ export const authConfig: NextAuthConfig = {
           .object({ email: z.string().email(), password: z.string().min(6) })
           .safeParse(credentials);
 
-        console.log({ parsedCredentials });
-
         if (!parsedCredentials.success) return null;
 
         const { email, password } = parsedCredentials.data;
@@ -30,7 +28,6 @@ export const authConfig: NextAuthConfig = {
 
         if (!bcryptjs.compareSync(password, passwordDB)) return null;
 
-        console.log({ user: rest });
         return rest;
       },
     }),
