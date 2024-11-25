@@ -2,7 +2,7 @@
 
 import { useActionState } from "react";
 import Link from "next/link";
-import { IoReloadCircle, IoWarning } from "react-icons/io5";
+import { IoReloadCircleOutline, IoWarning } from "react-icons/io5";
 
 import { authenticate } from "@/actions";
 
@@ -28,7 +28,7 @@ export const LoginForm = () => {
       />
 
       <button type="submit" className="btn-primary" disabled={isPending}>
-        {isPending ? <IoReloadCircle className="animate-spin" /> : "Ingresar"}
+        {isPending ? <IoReloadCircleOutline className="animate-spin m-auto" /> : "Ingresar"}
       </button>
 
       {errorMessage && (
