@@ -106,7 +106,7 @@ export const SideBarData = ({ categories }: Props) => {
           </Link>
 
           <Link
-            href={"/login"}
+            href={"/auth/login"}
             onClick={() => closeSideMenu()}
             className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
           >
