@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import type { CartProduct } from "@/interfaces";
+import type { CartProduct, ProductInterface } from "@/interfaces";
 
 interface State {
   cart: CartProduct[];
@@ -16,7 +16,7 @@ interface State {
 
   addProductTocart: (product: CartProduct) => void;
   updateProductQuantity: (product: CartProduct, quantity: number) => void;
-  removeProduct: (product: CartProduct) => void;
+  removeProduct: (product: ProductInterface) => void;
 }
 
 export const useCartStore = create<State>()(
@@ -74,7 +74,7 @@ export const useCartStore = create<State>()(
         set({ cart: updatedCartProducts });
       },
 
-      removeProduct: (product: CartProduct) => {
+      removeProduct: (product: ProductInterface) => {
         const { cart } = get();
         const updatedCartProducts = cart.filter((item) => !(item.id === product.id));
 
