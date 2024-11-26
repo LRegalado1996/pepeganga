@@ -6,7 +6,7 @@ import type { Category } from "@prisma/client";
 import clsx from "clsx";
 import Link from "next/link";
 
-// import { logout } from "@/actions";
+import { logout } from "@/actions";
 import { useUIStore } from "@/store";
 
 import {
@@ -116,7 +116,7 @@ export const SideBarData = ({ categories }: Props) => {
 
           <button
             className="flex items-center w-full mt-5 p-2 hover:text-olive rounded transition-all"
-            // onClick={() => logout()}
+            onClick={() => logout()}
           >
             <IoLogOut size={30} />
             <span className="ml-3 text-xl">Salir</span>

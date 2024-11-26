@@ -1,4 +1,5 @@
 export * from "./auth/login";
+export * from "./auth/logout";
 export * from "./category/category-children";
 export * from "./category/category-header";
 export * from "./category/category-slug";
