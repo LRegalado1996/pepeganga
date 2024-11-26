@@ -108,7 +108,7 @@ export const SideBarData = ({ categories, session }: Props) => {
                 className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
               >
                 <IoTicketOutline size={30} />
-                <span className="ml-3 text-xl">Ordenes</span>
+                <span className="ml-3 text-xl">Mis pedidos</span>
               </Link>
             </>
           )}
