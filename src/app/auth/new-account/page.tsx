@@ -1,7 +1,16 @@
 import { Title } from "@/components";
 import Link from "next/link";
+import { redirect } from "next/navigation";
 
-export default function newAccountPage() {
+import { auth } from "@/auth.config";
+
+export default async function newAccountPage() {
+  const session = await auth();
+
+  if (session?.user) {
+    redirect("/profile");
+  }
+
   return (
     <div className="flex flex-col justify-center items-center flex-1">
       <Title name={"Regístrate"} />
