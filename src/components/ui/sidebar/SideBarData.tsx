@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import type { Category } from "@prisma/client";
+import type { Session } from "next-auth";
 
 import clsx from "clsx";
 import Link from "next/link";
@@ -20,11 +21,14 @@ import {
 
 interface Props {
   categories: Category[];
+  session: Session | null;
 }
 
-export const SideBarData = ({ categories }: Props) => {
+export const SideBarData = ({ categories, session }: Props) => {
   const isSideMenuOpen = useUIStore((state) => state.isSideMenuOpen);
   const closeSideMenu = useUIStore((state) => state.closeSideMenu);
+
+  const isAuthenticated = !!session?.user;
 
   return (
     <div>
@@ -86,41 +90,47 @@ export const SideBarData = ({ categories }: Props) => {
             ))}
           </ul>
 
-          {/* Menu */}
-          <Link
-            href="/profile"
-            onClick={() => closeSideMenu()}
-            className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
-          >
-            <IoPersonOutline size={30} />
-            <span className="ml-3 text-xl">Perfil</span>
-          </Link>
+          {isAuthenticated && (
+            <>
+              {/* Menu */}
+              <Link
+                href="/profile"
+                onClick={() => closeSideMenu()}
+                className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
+              >
+                <IoPersonOutline size={30} />
+                <span className="ml-3 text-xl">Perfil</span>
+              </Link>
 
-          <Link
-            href="/orders"
-            onClick={() => closeSideMenu()}
-            className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
-          >
-            <IoTicketOutline size={30} />
-            <span className="ml-3 text-xl">Ordenes</span>
-          </Link>
+              <Link
+                href="/orders"
+                onClick={() => closeSideMenu()}
+                className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
+              >
+                <IoTicketOutline size={30} />
+                <span className="ml-3 text-xl">Ordenes</span>
+              </Link>
+            </>
+          )}
 
-          <Link
-            href={"/auth/login"}
-            onClick={() => closeSideMenu()}
-            className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
-          >
-            <IoLogInOutline size={30} />
-            <span className="ml-3 text-xl">Ingresar</span>
-          </Link>
-
-          <button
-            className="flex items-center w-full mt-5 p-2 hover:text-olive rounded transition-all"
-            onClick={() => logout()}
-          >
-            <IoLogOut size={30} />
-            <span className="ml-3 text-xl">Salir</span>
-          </button>
+          {isAuthenticated ? (
+            <button
+              className="flex items-center w-full mt-5 p-2 hover:text-olive rounded transition-all"
+              onClick={() => logout()}
+            >
+              <IoLogOut size={30} />
+              <span className="ml-3 text-xl">Salir</span>
+            </button>
+          ) : (
+            <Link
+              href={"/auth/login"}
+              onClick={() => closeSideMenu()}
+              className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
+            >
+              <IoLogInOutline size={30} />
+              <span className="ml-3 text-xl">Ingresar</span>
+            </Link>
+          )}
         </div>
       </nav>
     </div>
