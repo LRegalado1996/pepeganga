@@ -24,6 +24,7 @@ interface User {
   password: string;
   name: string;
   role: "admin" | "user";
+  phone: string;
 }
 
 export interface ProductList {
@@ -122,12 +123,14 @@ export const initialData: InitialData = {
       password: bcryptjs.hashSync("123456", 10),
       name: "Admin",
       role: "admin",
+      phone: "091475727",
     },
     {
       email: "user@email.com",
       password: bcryptjs.hashSync("123456", 10),
       name: "User",
       role: "user",
+      phone: "091475727",
     },
   ],
 
