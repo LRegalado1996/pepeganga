@@ -1,8 +1,11 @@
 "use client";
 
+import { SubmitHandler, useForm } from "react-hook-form";
 import clsx from "clsx";
 import Link from "next/link";
-import { SubmitHandler, useForm } from "react-hook-form";
+
+import { login, registerUser } from "@/actions";
+import { useState } from "react";
 
 type FormInputs = {
   name: string;
@@ -12,16 +15,34 @@ type FormInputs = {
 };
 
 export const RegisterForm = () => {
+  const [errorMessage, setErrorMessage] = useState("");
+
   const {
     register,
     handleSubmit,
     formState: { errors },
+    setError,
   } = useForm<FormInputs>();
 
   const onSubmit: SubmitHandler<FormInputs> = async (data) => {
+    setErrorMessage("");
     const { name, email, phone, password } = data;
 
-    console.log({ name, email, phone, password });
+    const resp = await registerUser({ name, email, phone, password });
+
+    if (!resp.ok) {
+      if (resp.type === "email") {
+        setError("email", { message: resp.message });
+      } else {
+        setErrorMessage(resp.message);
+      }
+
+      return;
+    }
+
+    await login(email.toLowerCase(), password);
+
+    window.location.replace("/");
   };
 
   return (
@@ -37,14 +58,18 @@ export const RegisterForm = () => {
       />
 
       <label htmlFor="email">Correo electrónico</label>
-      <input
-        className={clsx("px-5 py-2 border bg-gray-200 rounded mb-5", {
-          "border-red-500": !!errors.email,
-        })}
-        type="email"
-        required
-        {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
-      />
+      <div className="mb-5 flex flex-col">
+        <input
+          className={clsx("px-5 py-2 border bg-gray-200 rounded", {
+            "border-red-500": !!errors.email,
+          })}
+          type="email"
+          required
+          {...register("email", { required: true, pattern: /^\S+@\S+$/i })}
+        />
+
+        {!!errors.email && <span className="text-xs text-red-500">{errors.email.message}</span>}
+      </div>
 
       <label htmlFor="phone">Teléfono</label>
       <div className="mb-5 flex flex-col">
@@ -61,6 +86,7 @@ export const RegisterForm = () => {
             pattern: /^09\d{7}$/i,
           })}
         />
+
         {!!errors.phone && (
           <span className="text-xs text-red-500">Teléfono incorrecto. Ej: 091234567</span>
         )}
@@ -75,6 +101,8 @@ export const RegisterForm = () => {
         minLength={6}
         {...register("password", { required: true, minLength: 6 })}
       />
+
+      {errorMessage && <span className="text-xs text-red-500 mb-5">{errorMessage}</span>}
 
       <button className="btn-primary">Crear cuenta</button>
 
