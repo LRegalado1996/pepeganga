@@ -61,7 +61,9 @@ export const RegisterForm = () => {
             pattern: /^09\d{7}$/i,
           })}
         />
-        {!!errors.phone && <span className="text-xs text-red-500">Formato deseado 09XXXXXXX</span>}
+        {!!errors.phone && (
+          <span className="text-xs text-red-500">Teléfono incorrecto. Ej: 091234567</span>
+        )}
       </div>
 
       <label htmlFor="password">Contraseña</label>
@@ -70,7 +72,8 @@ export const RegisterForm = () => {
           "border-red-500": !!errors.password,
         })}
         type="password"
-        {...register("password", { required: true })}
+        minLength={6}
+        {...register("password", { required: true, minLength: 6 })}
       />
 
       <button className="btn-primary">Crear cuenta</button>
