@@ -120,14 +120,14 @@ export const initialData: InitialData = {
   users: [
     {
       email: "admin@email.com",
-      password: bcryptjs.hashSync("123456", 10),
+      password: bcryptjs.hashSync("123456"),
       name: "Admin",
       role: "admin",
       phone: "091475727",
     },
     {
       email: "user@email.com",
-      password: bcryptjs.hashSync("123456", 10),
+      password: bcryptjs.hashSync("123456"),
       name: "User",
       role: "user",
       phone: "091475727",

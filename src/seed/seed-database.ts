@@ -47,8 +47,12 @@ async function insertProducts(products: Product[]) {
     const { category, images, ...rest } = products[i];
     const product = {
       ...rest,
-      categoryId: dbCategories.filter((dbCategory) => dbCategory.name === category)[0].id,
+      categoryId: "",
     };
+
+    if (dbCategories.filter((dbCategory) => dbCategory.name === category)[0].id) {
+      product.categoryId = dbCategories.filter((dbCategory) => dbCategory.name === category)[0].id;
+    }
 
     const dbProduct = await prisma.product.create({
       data: product,
