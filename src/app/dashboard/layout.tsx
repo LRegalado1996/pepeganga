@@ -15,7 +15,7 @@ export default async function RootLayout({
   }
   return (
     <div className="flex flex-col flex-1">
-      <div className="flex-1 min-h-[500px] px-5 lg:px-10 pt-5">{children}</div>
+      <div className="flex-1 min-h-[500px] px-5 lg:px-10 pt-3">{children}</div>
       <TopMenuDashboard />
     </div>
   );

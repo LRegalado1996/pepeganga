@@ -8,3 +8,4 @@ export * from "./product/product-by-category";
 export * from "./product/product-by-ids";
 export * from "./product/product-by-slug";
 export * from "./product/product-list";
+export * from "./product/products-pagination";
