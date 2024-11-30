@@ -1,17 +1,18 @@
 import { getAllCategories, getPaginatedProducts } from "@/actions";
-import { Pagination, ProductsTable, Title } from "@/components";
+import { CategoriesFilter, Pagination, ProductsTable, Title } from "@/components";
 
 interface Props {
-  searchParams: {
+  searchParams: Promise<{
     page?: string;
     take?: string;
     category?: string;
-  };
+  }>;
 }
 
 export default async function dashboardProductPage({ searchParams }: Props) {
-  const page = searchParams.page ? parseInt(searchParams.page) : 1;
-  const take = searchParams.take ? parseInt(searchParams.take) : 60;
+  const params = await searchParams;
+  const page = params.page ? parseInt(params.page) : 1;
+  const take = params.take ? parseInt(params.take) : 60;
 
   const { products, totalPages } = await getPaginatedProducts({
     page,
@@ -22,7 +23,10 @@ export default async function dashboardProductPage({ searchParams }: Props) {
 
   return (
     <div>
-      <Title name="Lista de todos los productos" />
+      <div className="flex justify-between flex-col sm:flex-row">
+        <Title name="Lista de todos los productos" />
+        {allCategories?.length && <CategoriesFilter categories={allCategories} />}
+      </div>
 
       <ProductsTable products={products} categories={allCategories} />
 

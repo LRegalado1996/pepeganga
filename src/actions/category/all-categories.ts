@@ -4,7 +4,9 @@ import prisma from "@/lib/prisma";
 
 export const getAllCategories = async () => {
   try {
-    const allCategories = await prisma.category.findMany({ select: { name: true, id: true } });
+    const allCategories = await prisma.category.findMany({
+      select: { name: true, id: true, slug: true },
+    });
 
     return allCategories;
   } catch (error) {
