@@ -5,9 +5,10 @@ import { usePathname, useRouter } from "next/navigation";
 
 interface Props {
   categories: ShortCategory[];
+  categorySelected: string;
 }
 
-export const CategoriesFilter = ({ categories }: Props) => {
+export const CategoriesFilter = ({ categories, categorySelected }: Props) => {
   const router = useRouter();
   const pathname = usePathname();
   const currentQuery = new URLSearchParams(window.location.search);
@@ -23,13 +24,12 @@ export const CategoriesFilter = ({ categories }: Props) => {
       currentQuery.delete("category");
     }
 
-    console.log(currentQuery.toString());
     router.push(`${pathname}?${currentQuery.toString()}`);
   };
 
   return (
     <select
-      defaultValue={0}
+      defaultValue={categorySelected ? categorySelected : 0}
       className="w-48 h-fit mb-2 bg-ivory border border-gray-300 text-sm rounded-lg focus:ring-forestGreen focus:border-forestGreen  block p-2"
       onChange={onChangeSelect}
     >

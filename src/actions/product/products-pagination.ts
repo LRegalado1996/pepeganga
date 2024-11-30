@@ -5,9 +5,14 @@ import prisma from "@/lib/prisma";
 interface PaginationOptions {
   page?: number;
   take?: number;
+  category: string;
 }
 
-export const getPaginatedProducts = async ({ page = 1, take = 60 }: PaginationOptions) => {
+export const getPaginatedProducts = async ({
+  page = 1,
+  take = 60,
+  category,
+}: PaginationOptions) => {
   if (isNaN(Number(take))) take = 60;
   if (isNaN(Number(page))) page = 1;
   if (page < 1) page = 1;
@@ -16,12 +21,28 @@ export const getPaginatedProducts = async ({ page = 1, take = 60 }: PaginationOp
     let products = [];
     let totalCount = 0;
 
-    products = await prisma.product.findMany({
-      take,
-      skip: (page - 1) * take,
-    });
+    if (category) {
+      products = await prisma.product.findMany({
+        take,
+        skip: (page - 1) * take,
+        where: {
+          categoryId: category,
+        },
+      });
 
-    totalCount = await prisma.product.count();
+      totalCount = await prisma.product.count({
+        where: {
+          categoryId: category,
+        },
+      });
+    } else {
+      products = await prisma.product.findMany({
+        take,
+        skip: (page - 1) * take,
+      });
+
+      totalCount = await prisma.product.count();
+    }
 
     const totalPages = Math.ceil(totalCount / take);
 

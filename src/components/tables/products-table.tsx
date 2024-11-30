@@ -25,25 +25,33 @@ export const ProductsTable = ({ products, categories }: Props) => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
-            <tr key={product.id} className="bg-white border-b cursor-pointer hover:bg-ivory">
-              <th scope="row" className="px-6 py-4 whitespace-nowrap ">
-                {product.title}
+          {products.length > 0 ? (
+            products.map((product) => (
+              <tr key={product.id} className="bg-white border-b cursor-pointer hover:bg-ivory">
+                <th scope="row" className="px-6 py-4 whitespace-nowrap ">
+                  {product.title}
+                </th>
+                <td className="px-6 py-4">
+                  {categories.find(({ id }) => id === product.categoryId)?.name}
+                </td>
+                <td className="px-6 py-4">{product.stock}</td>
+                <td className="px-6 py-4">
+                  <Link
+                    href={`/dashboard/products/${product.id}`}
+                    className="flex btn-primary justify-center"
+                  >
+                    <IoChevronForwardOutline />
+                  </Link>
+                </td>
+              </tr>
+            ))
+          ) : (
+            <tr className="bg-white border-b cursor-pointer hover:bg-ivory">
+              <th scope="row" className="px-6 py-4 whitespace-nowrap">
+                <p>No hay productos disponibles</p>
               </th>
-              <td className="px-6 py-4">
-                {categories.find(({ id }) => id === product.categoryId)?.name}
-              </td>
-              <td className="px-6 py-4">{product.stock}</td>
-              <td className="px-6 py-4">
-                <Link
-                  href={`/dashboard/products/${product.id}`}
-                  className="flex btn-primary justify-center"
-                >
-                  <IoChevronForwardOutline />
-                </Link>
-              </td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
     </div>

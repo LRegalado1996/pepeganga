@@ -32,7 +32,10 @@ export const Pagination = ({ totalPages }: Props) => {
     }
 
     if (Number(pageNumber) <= 1) {
-      return `${pathname}`;
+      params.delete("page");
+      params.delete("take");
+
+      return `${pathname}?${params.toString()}`;
     }
 
     if (Number(pageNumber) > totalPages) {
