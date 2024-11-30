@@ -1,6 +1,7 @@
 export * from "./auth/login";
 export * from "./auth/logout";
 export * from "./auth/register";
+export * from "./category/all-categories";
 export * from "./category/category-children";
 export * from "./category/category-header";
 export * from "./category/category-slug";

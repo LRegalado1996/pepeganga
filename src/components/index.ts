@@ -10,6 +10,7 @@ export * from "./products/categories-list/CategoriesList";
 export * from "./products/categories-products-list/CategoriesProductsList";
 export * from "./products/categories-view/CategoriesView";
 export * from "./products/products-grid/ProductGrid";
+export * from "./tables/products-table";
 export * from "./ui/footer/Footer";
 export * from "./ui/not-found/PageNotFound";
 export * from "./ui/pagination/Pagination";

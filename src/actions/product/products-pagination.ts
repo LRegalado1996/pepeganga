@@ -7,8 +7,8 @@ interface PaginationOptions {
   take?: number;
 }
 
-export const getPaginatedProducts = async ({ page = 1, take = 12 }: PaginationOptions) => {
-  if (isNaN(Number(take))) take = 12;
+export const getPaginatedProducts = async ({ page = 1, take = 60 }: PaginationOptions) => {
+  if (isNaN(Number(take))) take = 60;
   if (isNaN(Number(page))) page = 1;
   if (page < 1) page = 1;
 
