@@ -16,6 +16,7 @@ import {
   IoLogOut,
   IoPersonOutline,
   IoSearchOutline,
+  IoSettingsOutline,
   IoTicketOutline,
 } from "react-icons/io5";
 
@@ -111,6 +112,17 @@ export const SideBarData = ({ categories, session }: Props) => {
                 <span className="ml-3 text-xl">Mis pedidos</span>
               </Link>
             </>
+          )}
+
+          {session?.user?.role === "admin" && (
+            <Link
+              href={"/dashboard"}
+              onClick={() => closeSideMenu()}
+              className="flex items-center mt-5 p-2 hover:text-olive rounded transition-all"
+            >
+              <IoSettingsOutline size={30} />
+              <span className="ml-3 text-xl">Configuraciones</span>
+            </Link>
           )}
 
           {isAuthenticated ? (

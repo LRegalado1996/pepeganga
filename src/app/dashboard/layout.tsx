@@ -1,7 +1,7 @@
-import { auth } from "@/auth.config";
-import Link from "next/link";
 import { redirect } from "next/navigation";
-import { IoHomeOutline } from "react-icons/io5";
+
+import { auth } from "@/auth.config";
+import { TopMenuDashboard } from "@/components";
 
 export default async function RootLayout({
   children,
@@ -14,24 +14,9 @@ export default async function RootLayout({
     redirect("/");
   }
   return (
-    <div className="flex-1">
-      <ul>
-        <li>
-          <Link href="/dashboard" aria-label="Volver al menu del dashboard">
-            <IoHomeOutline />
-          </Link>
-        </li>
-        <li>
-          <Link href="/dashboard/products">Productos</Link>
-        </li>
-        <li>
-          <Link href="/dashboard/orders">Pedidos</Link>
-        </li>
-        <li>
-          <Link href="/dashboard/users">Usuarios</Link>
-        </li>
-      </ul>
-      {children}
+    <div className="flex flex-col flex-1">
+      <div className="flex-1 min-h-[500px] px-5 lg:px-10 pt-5">{children}</div>
+      <TopMenuDashboard />
     </div>
   );
 }
