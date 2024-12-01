@@ -1,9 +1,22 @@
+import { ProductById } from "@/actions";
 import { Title } from "@/components";
+import { redirect } from "next/navigation";
 
-export default async function dashboardProductIdPage() {
+interface Props {
+  params: Promise<{
+    id: string;
+  }>;
+}
+
+export default async function dashboardProductIdPage({ params }: Props) {
+  const { id } = await params;
+  const product = await ProductById(id);
+
+  if (!product) redirect("/dashboard/products");
+
   return (
     <div>
-      <Title name="Editar producto: " />
+      <Title name={`Editar pruducto: ${product.title}`} />
 
       {/* TODO:  */}
     </div>
