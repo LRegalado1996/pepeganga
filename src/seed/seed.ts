@@ -41,43 +41,43 @@ interface InitialData {
 export const initialData: InitialData = {
   categories: [
     {
-      name: "Bijouterie",
-      slug: "/bijouterie",
+      name: "Accesorios",
+      slug: "/accesorios",
       image: "/imgs/categories/bijouterie.png",
       childrens: [
         {
           name: "Anillos",
-          slug: "/bijouterie/anillos",
+          slug: "/accesorios/anillos",
           image: "/imgs/categories/anillos.png",
         },
         {
           name: "Pulseras",
-          slug: "/bijouterie/pulseras",
+          slug: "/accesorios/pulseras",
           image: "/imgs/categories/pulseras.png",
         },
         {
           name: "Collares",
-          slug: "/bijouterie/collares",
+          slug: "/accesorios/collares",
           image: "/imgs/categories/collar.png",
           childrens: [
             {
               name: "Piedra",
-              slug: "/bijouterie/collares/piedra",
+              slug: "/accesorios/collares/piedra",
               image: "/imgs/categories/collar-piedra.png",
             },
             {
               name: "Letra",
-              slug: "/bijouterie/collares/letra",
+              slug: "/accesorios/collares/letra",
               image: "/imgs/categories/collar-letras.png",
             },
             {
               name: "Signos",
-              slug: "/bijouterie/collares/signos",
+              slug: "/accesorios/collares/signos",
               image: "/imgs/categories/collar-signo.png",
             },
             {
               name: "Otros",
-              slug: "/bijouterie/collares/otros",
+              slug: "/accesorios/collares/otros",
               image: "/imgs/categories/collar-otro.png",
             },
           ],
