@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { getAllCategories, getPaginatedProducts } from "@/actions";
 import { CategoriesFilter, Pagination, ProductsTable, Title } from "@/components";
 
@@ -27,10 +29,16 @@ export default async function dashboardProductPage({ searchParams }: Props) {
     <div>
       <div className="flex justify-between flex-col sm:flex-row">
         <Title name="Lista de todos los productos" />
-        {allCategories?.length && (
-          <CategoriesFilter categories={allCategories} categorySelected={category} />
-        )}
+        <Link className="btn-primary h-fit" href="/dashboard/products/new-product">
+          Crear producto
+        </Link>
       </div>
+
+      {allCategories?.length && (
+        <div className="w-full flex justify-end">
+          <CategoriesFilter categories={allCategories} categorySelected={category} />
+        </div>
+      )}
 
       <ProductsTable products={products} categories={allCategories} />
 
