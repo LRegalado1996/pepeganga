@@ -1,4 +1,4 @@
-import { Title } from "@/components";
+import { CreateProductForm, Title } from "@/components";
 
 export default async function dashboardNewProductPage() {
   return (
@@ -6,6 +6,7 @@ export default async function dashboardNewProductPage() {
       <Title name="Crear un nuevo producto" />
 
       {/* TODO:  */}
+      <CreateProductForm />
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import { ProductById } from "@/actions";
-import { Title } from "@/components";
+import { CreateProductForm, Title } from "@/components";
 import { redirect } from "next/navigation";
 
 interface Props {
@@ -19,6 +19,7 @@ export default async function dashboardProductIdPage({ params }: Props) {
       <Title name={`Editar pruducto: ${product.title}`} />
 
       {/* TODO:  */}
+      <CreateProductForm product={product} />
     </div>
   );
 }
