@@ -29,7 +29,7 @@ export default async function dashboardProductPage({ searchParams }: Props) {
     <div>
       <div className="flex justify-between flex-col sm:flex-row">
         <Title name="Lista de todos los productos" />
-        <Link className="btn-primary h-fit" href="/dashboard/products/new-product">
+        <Link className="btn-primary h-fit mb-5 text-center" href="/dashboard/products/new-product">
           Crear producto
         </Link>
       </div>
