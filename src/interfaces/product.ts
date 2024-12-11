@@ -1,7 +1,8 @@
-import type { ProductImage, Product as ProductPrisma } from "@prisma/client";
+import type { ProductImage, ProductList, Product as ProductPrisma } from "@prisma/client";
 
 export interface ProductInterface extends ProductPrisma {
   ProductImage: ProductImage[];
+  ProductList?: ProductList[];
 }
 
 export interface CartProduct {
