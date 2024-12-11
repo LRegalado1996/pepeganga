@@ -27,7 +27,13 @@ export const ProductByIds = async (ids: string[]) => {
 
 export const ProductById = async (id: string) => {
   try {
-    const product = await prisma.product.findFirst({ where: { id } });
+    const product = await prisma.product.findFirst({
+      where: { id },
+      include: {
+        ProductImage: true,
+        productLists: true,
+      },
+    });
 
     return product;
   } catch (error) {
