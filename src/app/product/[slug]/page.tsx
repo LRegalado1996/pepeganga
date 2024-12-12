@@ -5,13 +5,11 @@ import { mainFont } from "@/config/fonts";
 import { AddToCart, ImageSlider } from "@/components";
 
 interface Props {
-  params: {
-    slug: string;
-  };
+  params: Promise<{ slug: string }>;
 }
 
 export default async function ProductSlugPage({ params }: Props) {
-  const { slug } = params;
+  const { slug } = await params;
   const product = await getProductBySlug(slug);
 
   if (!product) notFound();
