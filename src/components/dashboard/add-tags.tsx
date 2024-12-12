@@ -25,7 +25,8 @@ export const AddTags = ({ onChange, value }: Props) => {
     setNewTag("");
   };
 
-  const removeTag = (tag: string) => {
+  const removeTag = (event: React.MouseEvent<HTMLButtonElement>, tag: string) => {
+    event.preventDefault();
     const newTags = value?.filter((t) => t !== tag) ?? [];
 
     onChange(newTags);
@@ -44,7 +45,7 @@ export const AddTags = ({ onChange, value }: Props) => {
         {value?.map((tag, i) => (
           <li key={i} className="flex bg-ivory rounded-full overflow-hidden">
             <span className="py-1 px-2 uppercase text-xs">{tag}</span>
-            <button className="p-1 hover:bg-forestGreen" onClick={() => removeTag(tag)}>
+            <button className="p-1 hover:bg-forestGreen" onClick={(e) => removeTag(e, tag)}>
               <IoClose />
             </button>
           </li>
