@@ -1,0 +1,84 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  admin
+  user
+}
+
+model Category {
+  id      String    @id @default(uuid())
+  name    String
+  image   String
+  slug    String    @unique
+  Product Product[]
+
+  parentId String?
+  parent   Category?  @relation("CategoryToParent", fields: [parentId], references: [id])
+  children Category[] @relation("CategoryToParent")
+
+  @@index([name])
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  internalId  Int      @unique
+  title       String
+  description String
+  price       Float    @default(0)
+  tags        String[] @default([])
+  stock       Int      @default(0)
+  slug        String   @unique
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+
+  productLists ProductList[] @relation("ProductInLists")
+
+  ProductImage ProductImage[]
+
+  @@index([title, tags])
+}
+
+model ProductImage {
+  id  String @id @default(uuid())
+  url String
+  alt String
+
+  product   Product @relation(fields: [productId], references: [id])
+  productId String
+}
+
+model ProductList {
+  id          String  @id @default(uuid())
+  title       String  @unique
+  description String?
+
+  products Product[] @relation("ProductInLists")
+  roles    Role[]    @default([admin, user])
+
+  @@index([title])
+}
+
+model User {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  emailVerified DateTime?
+  password      String
+  role          Role      @default(user)
+  image         String?
+  phone         String
+}
