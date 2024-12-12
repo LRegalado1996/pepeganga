@@ -3,6 +3,7 @@ export * from "./auth/register-form";
 export * from "./cart/create-order-button/CreateOrderButton";
 export * from "./cart/order-summary/OrderSummary";
 export * from "./cart/product-in-cart/ProductInCart";
+export * from "./dashboard/add-images";
 export * from "./dashboard/add-tags";
 export * from "./dashboard/create-product-form";
 export * from "./dashboard/top-menu-dashboard";

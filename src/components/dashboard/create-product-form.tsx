@@ -2,11 +2,13 @@
 
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import clsx from "clsx";
 
+import { AddTags, AddImages } from "@/components";
 import { getAllCategories } from "@/actions";
 import type { ProductInterface, ShortCategory } from "@/interfaces";
-import { AddTags } from "@/components";
+import type { ProductImage } from "@prisma/client";
 
 interface Props {
   product?: ProductInterface;
@@ -17,8 +19,7 @@ type FormInputs = {
   description: string;
   internalId: number;
   price: number;
-  productImage: string[];
-  productLists?: string[];
+  productImage: ProductImage[];
   slug: string;
   stock: number;
   tags?: string[];
@@ -27,6 +28,7 @@ type FormInputs = {
 
 export const CreateProductForm = ({ product }: Props) => {
   const [categories, setCategories] = useState<ShortCategory[]>([]);
+  const router = useRouter();
 
   const [loaded, setLoaded] = useState(false);
 
@@ -46,7 +48,7 @@ export const CreateProductForm = ({ product }: Props) => {
       stock: product?.stock,
       slug: product?.slug,
       categoryId: product?.categoryId,
-      productImage: product?.ProductImage?.map(({ id }) => id) ?? [],
+      productImage: product?.ProductImage ?? [],
     },
   });
 
@@ -68,6 +70,12 @@ export const CreateProductForm = ({ product }: Props) => {
 
   const onChangeTags = (tags: string[]) => {
     setValue("tags", tags);
+    router.refresh();
+  };
+
+  const onChangeImages = (images: ProductImage[]) => {
+    setValue("productImage", images);
+    router.refresh();
   };
 
   return (
@@ -213,9 +221,17 @@ export const CreateProductForm = ({ product }: Props) => {
           )}
         </div>
 
-        {/*
-  productLists: string[];
-  productImage: string[]; */}
+        <div className="grid sm:grid-cols-[15%,85%] w-full sm:col-span-2">
+          <label className="py-2">Tags:</label>
+
+          <AddImages onChange={onChangeImages} value={getValues("productImage")} />
+
+          {!!errors.categoryId && (
+            <span className="text-xs text-end text-red-500 col-span-2">
+              {errors.categoryId.message}s
+            </span>
+          )}
+        </div>
       </form>
     )
   );
