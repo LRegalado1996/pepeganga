@@ -20,8 +20,7 @@ export const AddImages = ({ onChange, value }: Props) => {
     onChange(allValues);
   };
 
-  const removeImage = (event: React.MouseEvent<HTMLButtonElement>, imageId: string) => {
-    event.preventDefault();
+  const removeImage = (imageId: string) => {
     const newImages = value?.filter((image) => image.id !== imageId) ?? [];
 
     onChange(newImages);
@@ -40,7 +39,7 @@ export const AddImages = ({ onChange, value }: Props) => {
         </label>
       </li>
 
-      {value.map((image, i) => (
+      {value.map((image) => (
         <li
           key={image.id}
           className="p-2 flex flex-col w-[150px] h-[150px] justify-between items-center border border-forestGreen relative bg-white"
@@ -56,7 +55,8 @@ export const AddImages = ({ onChange, value }: Props) => {
           <button
             aria-label="Borrar imagen"
             className="absolute top-1 right-1 text-red-500 hover:text-red-900"
-            onClick={(e) => removeImage(e, image.id)}
+            onClick={() => removeImage(image.id)}
+            type="button"
           >
             <IoClose />
           </button>

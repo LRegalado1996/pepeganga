@@ -15,8 +15,7 @@ export const AddTags = ({ onChange, value }: Props) => {
     setNewTag(event.target.value);
   };
 
-  const addTag = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
+  const addTag = () => {
     const newTags = value ?? [];
 
     if (!newTags.includes(newTag)) newTags.push(newTag);
@@ -25,8 +24,7 @@ export const AddTags = ({ onChange, value }: Props) => {
     setNewTag("");
   };
 
-  const removeTag = (event: React.MouseEvent<HTMLButtonElement>, tag: string) => {
-    event.preventDefault();
+  const removeTag = (tag: string) => {
     const newTags = value?.filter((t) => t !== tag) ?? [];
 
     onChange(newTags);
@@ -36,7 +34,7 @@ export const AddTags = ({ onChange, value }: Props) => {
     <div className="flex flex-col gap-4 p-2 bg-gray-50 rounded">
       <div className="flex">
         <input className="flex-1 p-1 uppercase text-xs" value={newTag} onChange={handleChange} />
-        <button className="btn-primary text-xs" onClick={addTag}>
+        <button className="btn-primary text-xs" onClick={() => addTag()} type="button">
           Agregar
         </button>
       </div>
@@ -45,7 +43,11 @@ export const AddTags = ({ onChange, value }: Props) => {
         {value?.map((tag, i) => (
           <li key={i} className="flex bg-ivory rounded-full overflow-hidden">
             <span className="py-1 px-2 uppercase text-xs">{tag}</span>
-            <button className="p-1 hover:bg-forestGreen" onClick={(e) => removeTag(e, tag)}>
+            <button
+              className="p-1 hover:bg-forestGreen"
+              onClick={() => removeTag(tag)}
+              type="button"
+            >
               <IoClose />
             </button>
           </li>
